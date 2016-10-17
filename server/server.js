@@ -3,15 +3,22 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-// connect to mongo database named "shortly"
+app.use(express.static('../client'));
+
+// connect to mongo database named "networker"
 mongoose.connect('mongodb://localhost/networker');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("db connected")
+});
+
 
 // configure our server with all the middleware and routing
 // require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
-// start listening to requests on port 8000
 app.listen(3003);
 
-// export our app for testing and flexibility, required by index.js
 module.exports = app;
