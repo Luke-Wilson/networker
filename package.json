@@ -1,0 +1,28 @@
+{
+  "name": "networking-sorter",
+  "version": "1.0.0",
+  "description": "Networking sorter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luke-Wilson/networking-sorter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luke-Wilson/networking-sorter/issues"
+  },
+  "homepage": "https://github.com/Luke-Wilson/networking-sorter#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "bookshelf": "^0.10.2",
+    "express": "^4.14.0",
+    "knex": "^0.12.5",
+    "path": "^0.12.7",
+    "sqlite3": "^3.1.6"
+  }
+}

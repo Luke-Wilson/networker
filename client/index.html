@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app='networker'>
+  <head>
+    <meta charset="utf-8" />
+    <title>Networker</title>
+    <!-- <link rel="stylesheet" type="text/css" href="styles/style.css" /> -->
+  </head>
+  <body>
+    <h1>Networker</h1>
+
+    <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
+    <div ng-view></div>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/attendees/attendees.js"></script>
+    <script src="app/services/services.js"></script>
+
+  </body>
+</html>
