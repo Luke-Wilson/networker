@@ -7,3 +7,6 @@
 </form>
 <div class="attendeeForm" style="color:blue" ng-show='!tableSizeModel || tableSizeModel < 5'>Please enter a number over 5</div>
 </div>
+<div ng-click="getTables()">click me</div>
+
+<div class="tableBox" ng-repeat="table in tables track by $index">Table #{{$index+1}}: {{table[0].firstname}} {{table[0].lastname}}, seniority level {{table[0].seniority}}</div>

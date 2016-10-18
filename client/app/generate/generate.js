@@ -1,7 +1,13 @@
 angular.module('networker.generate', [])
 .controller('GenerateController', function($scope, Generator){
   $scope.generate = function() {
-    console.log('generate from controller fired');
     Generator.generate($scope.tableSizeModel);
+    setTimeout($scope.getTables, 1000);
   };
+
+  $scope.tables = '';
+
+  $scope.getTables = function() {
+    $scope.tables = Generator.tableList();
+  }
 });
