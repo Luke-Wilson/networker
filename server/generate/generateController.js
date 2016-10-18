@@ -8,12 +8,6 @@ var createAttendee = Q.nbind(Attendee.create, Attendee);
 var findAllAttendees = Q.nbind(Attendee.find, Attendee);
 
 module.exports = {
-  // ones : [],
-  // twos : [],
-  // threes : [],
-  // fours : [],
-  // fives : [],
-
   generateList: function(req, res, next) {
     console.log("hello from generateList")
     var tableSize = req.body.tableSize;
@@ -23,7 +17,25 @@ module.exports = {
     var threes = [];
     var fours = [];
     var fives = [];
+    var tables = {};
 
+    var buildTable = function(tableSize, compiled, currentArray, counter, tables) {
+      tables = tables || {};
+      counter = counter || 0;
+      currentArray = currentArray || [];
+      //base case
+      if (compiled.length === 0) {
+        return tables;
+      }
+      if (currentArray.length === tableSize) {
+        console.log('condition met', currentArray.length, tableSize);
+        counter++;
+        tables[counter] = currentArray;
+        currentArray = [];
+      }
+      currentArray.push(compiled.shift());
+      return buildTable(tableSize, compiled, currentArray, counter, tables)
+    }
 
     var buildSeniorityGroup = function(greaterThan, lessThan, targetArray) {
       return new Promise(function(resolve, reject) {
@@ -39,11 +51,14 @@ module.exports = {
       })
     }
 
-    buildSeniorityGroup(4,6,fives)
-    .then(buildSeniorityGroup(3,5,fours))
-    .then(buildSeniorityGroup(2,4,threes))
-    .then(buildSeniorityGroup(1,3,twos))
-    .then(buildSeniorityGroup(0,2,ones))
+    //chain promises using Q.all
+    return Q.all([
+      buildSeniorityGroup(4,6,fives),
+      buildSeniorityGroup(3,5,fours),
+      buildSeniorityGroup(2,4,threes),
+      buildSeniorityGroup(1,3,twos),
+      buildSeniorityGroup(0,2,ones)
+    ])
     .then(function() {
       console.log('1s', ones.length)
       console.log('2s', twos.length)
@@ -51,35 +66,12 @@ module.exports = {
       console.log('4s', fours.length)
       console.log('5s', fives.length)
     })
-    .then(function(){
-      res.json(fours);
+    .then(function() {
+      var allArrays = ones.concat(twos, threes, fours, fives);
+      console.log(buildTable(tableSize, allArrays, [], 0, {}));
     })
-
-
-
-
-
-    //find fives
-    // findAllAttendees({'seniority':{'$gt':4}})
-    //   .then(function(found) {
-    //     fives.push(found);
-    //     // res.json(found);
-    //   })
-    //   .then(function() {
-    //     console.log(fives);
-    //   })
-
-    //find fours
-    // findAllAttendees({'seniority':{'$gt':3, '$lt':5}})
-    //   .then(function(found) {
-    //     fours.push(found);
-    //     // res.json(found);
-    //   })
-    //   .then(function() {
-    //     console.log(fours);
-    //   })
-    //   .then(function() {
-    //     res.json(fours)
-    //   })
+    .then(function(tables){
+      res.json(tables);
+    })
   }
 }
