@@ -1,4 +1,5 @@
 var attendeeController = require('../attendees/attendeeController.js');
+var generateController = require('../generate/generateController.js');
 // var helpers = require('./helpers.js'); // our custom middleware
 
 
@@ -12,5 +13,7 @@ module.exports = function(app, express) {
 
   app.post('/api/attendee', attendeeController.addAttendee);
   app.post('/api/randoms', attendeeController.addRandoms);
+
+  app.post('/api/generate', generateController.generateList);
 
 }

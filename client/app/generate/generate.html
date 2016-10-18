@@ -1,7 +1,7 @@
 <div ng-controller="GenerateController" id='container'>
-<form name="generateList">
+<form action="api/generate" method="POST" name="generateList">
     <span>Number of guests per table:</span>
-    <input type="number" placeholder="-">
+    <input name="tableSize" type="number" placeholder="-">
     <input type="submit" value="Generate!">
 </form>
 </div>
