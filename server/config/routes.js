@@ -11,5 +11,6 @@ module.exports = function(app, express) {
   app.get('/api/count', attendeeController.getCount);
 
   app.post('/api/attendee', attendeeController.addAttendee);
+  app.post('/api/randoms', attendeeController.addRandoms);
 
 }

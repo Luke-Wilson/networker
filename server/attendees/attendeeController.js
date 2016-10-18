@@ -1,5 +1,6 @@
 var Q = require('q');
 var Attendee = require('./attendeeModel.js')
+var fs = require('fs');
 
 // Promisify a few mongoose methods with the `q` promise library
 var findAttendee = Q.nbind(Attendee.findOne, Attendee);
@@ -36,5 +37,17 @@ module.exports = {
       console.log('The COUNT IS ' + c)
       res.json(c);
     });
+  },
+
+  addRandoms: function() {
+    for (var i = 0; i < 10; i++ ) {
+      fs.readFile('../names.txt', 'utf8', function(err, data){
+        if(err) throw err;
+        // console.log(data);
+        var lines = data.split('\n');
+        var name = lines[Math.floor(Math.random()*lines.length)];
+        console.log(name);
+      })
+    }
   }
 }
