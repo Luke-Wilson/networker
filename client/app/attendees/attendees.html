@@ -1,4 +1,5 @@
 <div ng-controller="AttendeesController" id='container'>
+<span>Number of attendees so far: {{count}}</span>
   <form action="/api/attendee" method="POST">
     <div>Add an attendee: {{tester}}</div>
     <div>Title (e.g. Mr, Ms, Dr): <input name="title" type="text" placeholder="Enter a title"/></div>
@@ -6,7 +7,8 @@
     <div>Last name: <input name="lastname" type="text" placeholder="last name"/></div>
     <div>Job title: <input name="jobtitle" type="text" placeholder="job title"/></div>
     <div>Organization: <input name="organization" type="text" placeholder="organization"/></div>
-    <div>Seniority (1-10, with 1 being most senior): <input name="seniority" type="text" placeholder="seniority ranking between 1 and 10"/></div>
+    <div>Seniority (1-5, with 1 being most senior): <input name="seniority" type="text" placeholder="seniority ranking between 1 and 5"/></div>
+    <div>Interests: <input name="interests" type="text" placeholder="List 3 interests"/></div>
     <input type="submit" value="Submit">
   </form>
 </div>
