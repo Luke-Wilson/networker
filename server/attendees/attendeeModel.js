@@ -6,14 +6,9 @@ var AttendeeSchema = new mongoose.Schema({
   lastname: String,
   jobtitle: String,
   rank: Number,
-  organizationId: Number,
-  categoryId: Number
+  organization: String,
+  category: String,
+  interests: String
 });
-
-// AttendeeSchema.pre('save', function (next) {
-//   var code = createSha(this.url);
-//   this.code = code;
-//   next();
-// });
 
 module.exports = mongoose.model('Attendee', AttendeeSchema);
