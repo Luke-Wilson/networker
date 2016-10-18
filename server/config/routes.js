@@ -8,6 +8,8 @@ module.exports = function(app, express) {
     res.send();
   });
 
+  app.get('/api/count', attendeeController.getCount);
+
   app.post('/api/attendee', attendeeController.addAttendee);
 
 }
