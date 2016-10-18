@@ -1,4 +1,4 @@
-var attendeesController = require('../attendees/attendeeController.js');
+var attendeeController = require('../attendees/attendeeController.js');
 // var helpers = require('./helpers.js'); // our custom middleware
 
 
@@ -8,6 +8,6 @@ module.exports = function(app, express) {
     res.send();
   });
 
-  app.post('/api/attendees', attendeesController.addAttendee);
+  app.post('/api/attendee', attendeeController.addAttendee);
 
 }
