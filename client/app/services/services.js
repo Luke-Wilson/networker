@@ -30,9 +30,20 @@ angular.module('networker.services', [])
 })
 
 .factory('Generator', function ($http) {
-
+  var generate = function(tableSize) {
+    console.log('generate from Generator fired', tableSize)
+    $http({
+      method: 'POST',
+      url: '/api/generate',
+      data: {tableSize: tableSize}
+    })
+    .then(function (resp) {
+      console.log(resp);
+      return resp;
+    });
+  }
   return {
-
+    generate: generate
   }
 })
 

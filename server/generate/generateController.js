@@ -9,7 +9,6 @@ var findAllAttendees = Q.nbind(Attendee.find, Attendee);
 
 module.exports = {
   generateList: function(req, res, next) {
-    console.log("hello from generateList")
     var tableSize = req.body.tableSize;
 
     var ones = [];

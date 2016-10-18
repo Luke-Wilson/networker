@@ -1,9 +1,9 @@
 <div ng-controller="GenerateController" id='container'>
-<form class="attendeeForm" action="api/generate" method="POST" name="generateList">
+<form class="attendeeForm" name="generateList" ng-submit="generate()">
+<!-- action="api/generate" method="POST"  -->
     <span>Number of guests per table:</span>
     <input ng-model="tableSizeModel" name="tableSize" type="number" placeholder="-">
     <input ng-disabled="!tableSizeModel || tableSizeModel < 5" type="submit" value="Generate!">
-
 </form>
 <div class="attendeeForm" style="color:blue" ng-show='!tableSizeModel || tableSizeModel < 5'>Please enter a number over 5</div>
 </div>
