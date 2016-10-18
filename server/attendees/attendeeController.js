@@ -21,7 +21,7 @@ module.exports = {
       if (err) return console.error(err);
       console.log('saved?')
     }).then(function() {
-      res.send()
+      res.redirect('/')
     });
   }
 }
