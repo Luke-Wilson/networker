@@ -89,7 +89,7 @@ input[type=submit] {
   display: inline-block;
 }
 
-input[type=submit]:hover {
+input[type=submit]:not([disabled]):hover {
   background: #CCFFCC;
 }
 
