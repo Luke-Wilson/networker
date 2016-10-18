@@ -1,7 +1,7 @@
 <div ng-controller="AttendeesController" id='container'>
-<span>Number of attendees so far: {{count}}</span>
+<div class="added">Number of attendees so far: {{count}}</div>
   <form class="attendeeForm" action="/api/attendee" method="POST">
-    <div id="formTitle">Add a new attendee</div>
+    <h4>Add a new attendee</h4>
     <p><label for="title">Title:</label><input name="title" type="text" placeholder="Enter a title"/></p>
     <p><label for="firstname">First name:</label><input name="firstname" type="text" placeholder="first name"/></p>
     <p><label for="lastname">Last name:</label><input name="lastname" type="text" placeholder="last name"/></p>
@@ -9,9 +9,10 @@
     <p><label for="organization">Organization:</label><input name="organization" type="text" placeholder="organization"/></p>
     <p><label for="name" class='tooltip'><span class="tooltiptext">1 is most senior, 5 is least senior</span><strong>Seniority:</strong></label><input name="seniority" type="text" placeholder="seniority ranking between 1 and 5"/></p>
     <p><label for="expertise">Expertise:</label><input name="expertise" type="text" placeholder="List 1 expertise"/></p>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Add attendee">
   </form>
-  <form action="/api/randoms" method="POST">
+  <form class="attendeeForm" action="/api/randoms" method="POST">
     <input type="submit" value="Add random people to list">
   </form>
+
 </div>

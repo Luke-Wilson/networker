@@ -20,6 +20,10 @@ angular.module('networker', [
       templateUrl: './app/generate/generate.html',
       controller: 'GenerateController'
     })
+    .when('/added', {
+      templateUrl: './app/attendees/added.html',
+      controller: 'AttendeesController'
+    })
     // .otherwise('/', {
     //   templateUrl: 'index.html',
     //   controller: 'MainController',

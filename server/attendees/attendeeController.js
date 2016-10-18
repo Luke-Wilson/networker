@@ -28,7 +28,7 @@ module.exports = {
       })
       console.log('saved?')
     }).then(function() {
-      res.redirect('/')
+      res.redirect('/#/added')
     });
   },
 
