@@ -23,7 +23,20 @@ angular.module('networker.services', [])
       return resp;
     });
   };
+
+  var getCount = function(){
+    return $http({
+      method: 'GET',
+      url: '/api/count'
+    })
+    .then(function (resp) {
+      console.log(resp.data)
+      return resp.data;
+    })
+  }
+
   return {
-    addAttendee: addAttendee
+    addAttendee: addAttendee,
+    getCount: getCount
   };
 })
