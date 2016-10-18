@@ -8,7 +8,11 @@
   <body>
     <h1>Networker2</h1>
     <p>this is the home page</p>
-    <a href="#/attendees">Add an attendee</a>
+    <ul id="nav">
+      <li><a href="#/attendees">Add an attendee</a></li>
+      <li><a href="#/generate">Generate your table list</a></li>
+    </ul>
+
 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
     <div ng-view></div>
@@ -18,6 +22,7 @@
 
     <script src="app/app.js"></script>
     <script src="app/mainController.js"></script>
+    <script src="app/generate/generate.js"></script>
     <script src="app/attendees/attendees.js"></script>
     <script src="app/services/services.js"></script>
   </body>

@@ -2,6 +2,7 @@ angular.module('networker', [
   'networker.attendees',
   'networker.services',
   'networker.main',
+  'networker.generate',
   'ngRoute'
   ])
 .config(function ($routeProvider) {
@@ -14,6 +15,10 @@ angular.module('networker', [
     .when('/attendees', {
       templateUrl: './app/attendees/attendees.html',
       controller: 'AttendeesController'
+    })
+    .when('/generate', {
+      templateUrl: './app/generate/generate.html',
+      controller: 'GenerateController'
     })
     // .otherwise('/', {
     //   templateUrl: 'index.html',
