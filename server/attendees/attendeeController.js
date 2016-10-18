@@ -16,12 +16,25 @@ module.exports = {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       jobtitle: req.body.jobtitle,
-      rank: req.body.rank
-    }).save(function(err, attendee) {
+      rank: req.body.rank,
+      organization: req.body.organization,
+      category: req.body.category
+    }).save(function(err) {
       if (err) return console.error(err);
+      Attendee.count({}, function(err, c) {
+        console.log('Count is ' + c)
+      })
       console.log('saved?')
     }).then(function() {
       res.redirect('/')
+    });
+  },
+
+  getCount: function(req, res, next) {
+    Attendee.count({}, function(err, c) {
+      if (err) console.error(err);
+      console.log('The COUNT IS ' + c)
+      res.json(c);
     });
   }
 }
