@@ -2,15 +2,18 @@ var Attendee = require('../attendees/attendeeModel.js')
 var Q = require('q');
 var Promise = require('bluebird');
 
-
 // Promisify a few mongoose methods with the `q` promise library
 var findAttendee = Q.nbind(Attendee.findOne, Attendee);
 var createAttendee = Q.nbind(Attendee.create, Attendee);
 var findAllAttendees = Q.nbind(Attendee.find, Attendee);
 
-
-
 module.exports = {
+  // ones : [],
+  // twos : [],
+  // threes : [],
+  // fours : [],
+  // fives : [],
+
   generateList: function(req, res, next) {
     console.log("hello from generateList")
     var tableSize = req.body.tableSize;
@@ -29,6 +32,8 @@ module.exports = {
           for (var i = 0; i < found.length; i++) {
             targetArray.push(found[i]);
           }
+        })
+        .then(function() {
           resolve();
         })
       })
@@ -45,12 +50,11 @@ module.exports = {
       console.log('3s', threes.length)
       console.log('4s', fours.length)
       console.log('5s', fives.length)
+    })
+    .then(function(){
       res.json(fours);
     })
 
-    for(var i = 0; i < fives.length; i++) {
-      console.log(fives[i].organization)
-    }
 
 
 
