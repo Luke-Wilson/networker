@@ -25,6 +25,6 @@ db.once('open', function() {
 // require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
-app.listen(3003);
+app.listen(8080);
 
 module.exports = app;
