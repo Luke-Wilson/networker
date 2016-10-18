@@ -1,20 +1,23 @@
 angular.module('networker', [
   'networker.attendees',
-  'networker.services'
+  'networker.services',
+  'networker.main',
+  'ngRoute'
   ])
 .config(function ($routeProvider) {
   $routeProvider
-    .when('/', {
-      templateUrl: 'client/index.html',
-      controller: 'mainController'
-    })
+    // it seems we don't need the / handler, which is nice because it was causing an infinite loop!!
+    // .when('/', {
+    //   templateUrl: './index.html',
+    //   controller: 'MainController'
+    // })
     .when('/attendees', {
-      templateUrl: '/attendees/attendees.html',
-      controller: 'attendeesController'
+      templateUrl: './app/attendees/attendees.html',
+      controller: 'AttendeesController'
     })
-    .otherwise('/', {
-      templateUrl: 'client/index.html',
-      controller: 'mainController',
-      authenticate: true
-    });
+    // .otherwise('/', {
+    //   templateUrl: 'index.html',
+    //   controller: 'MainController',
+    //   authenticate: true
+    // });
 })

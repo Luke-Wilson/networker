@@ -1,9 +1,15 @@
-var express = require('express');
+var express  = require('express');
+var app      = express();
 var mongoose = require('mongoose');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
 
 var app = express();
 
 app.use(express.static('../client'));
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 // connect to mongo database named "networker"
 mongoose.connect('mongodb://localhost/networker');

@@ -5,10 +5,9 @@ var attendeesController = require('../attendees/attendeeController.js');
 module.exports = function(app, express) {
   app.get('/', function(req, res) {
     console.log("get request received agains!")
-
     res.send();
   });
 
-  app.post('/attendees', attendeesController.addAttendee);
+  app.post('/api/attendees', attendeesController.addAttendee);
 
 }

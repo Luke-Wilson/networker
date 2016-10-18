@@ -16,7 +16,7 @@ angular.module('networker.services', [])
   var addAttendee = function(attendee){
     return $http({
       method: 'POST',
-      url: '/attendee',
+      url: '/api/attendee',
       data: attendee
     })
     .then(function (resp) {
