@@ -16,9 +16,9 @@ module.exports = {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       jobtitle: req.body.jobtitle,
-      rank: req.body.rank,
+      seniority: req.body.seniority,
       organization: req.body.organization,
-      category: req.body.category
+      expertise: req.body.expertise
     }).save(function(err) {
       if (err) return console.error(err);
       Attendee.count({}, function(err, c) {

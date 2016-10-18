@@ -5,10 +5,10 @@ var AttendeeSchema = new mongoose.Schema({
   firstname: String,
   lastname: String,
   jobtitle: String,
-  rank: Number,
+  seniority: Number,
   organization: String,
   category: String,
-  interests: String
+  expertise: String
 });
 
 module.exports = mongoose.model('Attendee', AttendeeSchema);
