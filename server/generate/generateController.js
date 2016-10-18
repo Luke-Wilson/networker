@@ -24,6 +24,7 @@ module.exports = {
       currentArray = currentArray || [];
       //base case
       if (compiled.length === 0) {
+        tables[counter] = currentArray;
         return;
       }
 

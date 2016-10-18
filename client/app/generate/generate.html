@@ -7,7 +7,7 @@
 </form>
 <div class="attendeeForm" style="color:blue" ng-show='!tableSizeModel || tableSizeModel < 5'>Please enter a number over 5</div>
 </div>
-<div ng-click="getTables()">click me</div>
+<div class='added' align="center" ng-hide="hide" ng-click="getTables()">show tables</div>
 
 <div class="tableBox" ng-repeat="table in tables track by $index">TABLE!
   <ul>
