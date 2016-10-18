@@ -168,9 +168,11 @@ ul {
 
 .memberName {
   float: none;
+  margin-bottom: 7px;
 }
 
 .memberDetails {
   float: none;
   font-size: 12px;
+  list-style-type: none;
 }

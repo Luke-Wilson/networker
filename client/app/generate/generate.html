@@ -13,7 +13,8 @@
   <ul>
     <li class="memberName" ng-repeat="person in table track by $index">{{person.firstname}} {{person.lastname}} ({{person.seniority}})
       <ul>
-        <li class="memberDetails">{{person.organization}}</li>
+        <li class="memberDetails"><strong>{{person.organization}}</strong></li>
+        <li class="memberDetails">{{person.jobtitle}}</li>
         <li class="memberDetails">Expertise: {{person.expertise}}</li>
       </ul>
     </li>

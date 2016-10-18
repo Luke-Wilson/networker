@@ -2,14 +2,6 @@ angular.module('networker.services', [])
 .factory('Attendees', function ($http) {
   var addAttendee = function(attendee){
     //  THIS IS ACTUALLY BEING HANDLED BY THE HTML FORM
-    // return $http({
-    //   method: 'POST',
-    //   url: '/api/attendee',
-    //   data: attendee
-    // })
-    // .then(function (resp) {
-    //   return resp;
-    // });
   };
 
   var getCount = function(){
