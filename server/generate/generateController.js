@@ -19,22 +19,24 @@ module.exports = {
     var fives = [];
     var tables = {};
 
-    var buildTable = function(tableSize, compiled, currentArray, counter, tables) {
-      tables = tables || {};
+    var buildTable = function(tableSize, compiled, currentArray, counter) {
+      console.log('buildTable fired', tableSize, compiled.length, currentArray.length);
       counter = counter || 0;
       currentArray = currentArray || [];
       //base case
       if (compiled.length === 0) {
-        return tables;
+        return;
       }
-      if (currentArray.length === tableSize) {
-        console.log('condition met', currentArray.length, tableSize);
+
+      if (currentArray.length >= tableSize) {
         counter++;
         tables[counter] = currentArray;
         currentArray = [];
       }
-      currentArray.push(compiled.shift());
-      return buildTable(tableSize, compiled, currentArray, counter, tables)
+
+      var add = compiled.shift();
+      currentArray.push(add);
+      buildTable(tableSize, compiled, currentArray, counter)
     }
 
     var buildSeniorityGroup = function(greaterThan, lessThan, targetArray) {
@@ -68,7 +70,11 @@ module.exports = {
     })
     .then(function() {
       var allArrays = ones.concat(twos, threes, fours, fives);
-      console.log(buildTable(tableSize, allArrays, [], 0, {}));
+      return allArrays;
+    })
+    .then(function(allArrays) {
+      buildTable(tableSize, allArrays, [], 0);
+      return tables;
     })
     .then(function(tables){
       res.json(tables);
