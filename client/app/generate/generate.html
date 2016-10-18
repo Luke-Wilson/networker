@@ -9,4 +9,13 @@
 </div>
 <div ng-click="getTables()">click me</div>
 
-<div class="tableBox" ng-repeat="table in tables track by $index">Table #{{$index+1}}: {{table[0].firstname}} {{table[0].lastname}}, seniority level {{table[0].seniority}}</div>
+<div class="tableBox" ng-repeat="table in tables track by $index">TABLE!
+  <ul>
+    <li class="memberName" ng-repeat="person in table track by $index">{{person.firstname}} {{person.lastname}} ({{person.seniority}})
+      <ul>
+        <li class="memberDetails">{{person.organization}}</li>
+        <li class="memberDetails">Expertise: {{person.expertise}}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

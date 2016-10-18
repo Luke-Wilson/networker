@@ -7,7 +7,19 @@ angular.module('networker.generate', [])
 
   $scope.tables = '';
 
+
   $scope.getTables = function() {
     $scope.tables = Generator.tableList();
+    var myObj = Generator.tableList();
+    var counter = 0;
+    var tablesObj = {};
+
+    for (var key in myObj) {
+      tablesObj[counter] = (myObj[key]);
+      counter++;
+    }
+
+    console.log(tablesObj); // {1: [{person1}, {person2}]}
+
   }
 });
