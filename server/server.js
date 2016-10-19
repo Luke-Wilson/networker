@@ -28,6 +28,8 @@ db.once('open', function() {
 // require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080, function() {
+  console.log('server is listening');
+});
 
 module.exports = app;
