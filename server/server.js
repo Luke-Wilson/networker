@@ -12,7 +12,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // connect to mongo database named "networker"
-mongoose.connect('mongodb://localhost/networker');
+//mongoose.connect('mongodb://localhost/networker');
+// mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect('mongodb://test:testy@ds139735.mlab.com:39735/networkerdb');
+
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -25,6 +28,6 @@ db.once('open', function() {
 // require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 
 module.exports = app;
