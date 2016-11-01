@@ -16,13 +16,11 @@ app.use(bodyParser.json());
 // mongoose.connect(process.env.MONGOLAB_URI);
 mongoose.connect('mongodb://test:testy@ds139735.mlab.com:39735/networkerdb');
 
-
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("db connected")
 });
-
 
 // configure our server with all the middleware and routing
 // require('./config/middleware.js')(app, express);

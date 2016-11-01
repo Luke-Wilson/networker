@@ -9,13 +9,13 @@
 </div>
 <div class='added' align="center" ng-hide="hide" ng-click="getTables()">show tables</div>
 
-<div class="tableBox" ng-repeat="table in tables track by $index">TABLE!
+<div class="tableBox" ng-repeat="table in tables track by $index">Table #{{$index+1}}
   <ul>
-    <li class="memberName" ng-repeat="person in table track by $index">{{person.firstname}} {{person.lastname}} ({{person.seniority}})
+    <li class="memberName" ng-repeat="person in table track by $index">{{person.firstname}} {{person.lastname}}
       <ul>
         <li class="memberDetails"><strong>{{person.organization}}</strong></li>
         <li class="memberDetails">{{person.jobtitle}}</li>
-        <li class="memberDetails">Expertise: {{person.expertise}}</li>
+        <li class="memberDetails">Expertise: {{person.expertise}} ({{person.seniority}})</li>
       </ul>
     </li>
   </ul>
